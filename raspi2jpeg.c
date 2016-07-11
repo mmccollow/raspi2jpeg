@@ -14,13 +14,13 @@ int main(int argc, char *argv[]) {
 	int result = 0;
 	char *program = argv[0];
 
-  // initialize broadcom stuff
+ 	// initialize broadcom stuff
 	bcm_host_init();
 
-  // get a handle to the display
+ 	// get a handle to the display
 	DISPMANX_DISPLAY_HANDLE_T displayHandle
 		= vc_dispmanx_display_open(0);
-	
+
 	// get display info struct for width and height
 	DISPMANX_MODEINFO_T modeInfo;
 	vc_dispmanx_display_get_info(displayHandle, &modeInfo);
@@ -28,7 +28,7 @@ int main(int argc, char *argv[]) {
 	int32_t dmxWidth = modeInfo.width;
 	int32_t dmxHeight = modeInfo.height;
 
-  int32_t dmxPitch = dmxBytesPerPixel * ALIGN_TO_16(dmxWidth);
+	int32_t dmxPitch = dmxBytesPerPixel * ALIGN_TO_16(dmxWidth);
 
   // this will hold the pixels from the screenshot
   void *dmxImagePtr = malloc(dmxPitch * dmxHeight);
