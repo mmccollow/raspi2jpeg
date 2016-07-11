@@ -85,7 +85,7 @@ int main(int argc, char *argv[]) {
   // initialize MagickWand
   MagickWand *wand = NULL;
   MagickWandGenesis();
-	wand = NewMagickWand();
+  wand = NewMagickWand();
   
   // load our pixels into an Image
   MagickConstituteImage(wand, dmxWidth, dmxHeight, "RGBA", CharPixel, dmxImagePtr);
@@ -104,5 +104,5 @@ int main(int argc, char *argv[]) {
     wand = DestroyMagickWand(wand);
   free(dmxImagePtr);
 
-	return(0);
+  return(0);
 }
