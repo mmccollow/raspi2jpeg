@@ -1,5 +1,6 @@
 OBJS=raspi2jpeg.o
 BIN=raspi2jpeg
+DESTDIR=/usr/local/bin
 
 CFLAGS+=-Wall -g -O3 $(shell pkg-config --cflags --libs MagickWand)
 LDFLAGS+=-L/opt/vc/lib/ $(shell MagickWand-config --ldflags) -lbcm_host -lm
@@ -9,8 +10,7 @@ INCLUDES+=-I/opt/vc/include/ -I/opt/vc/include/interface/vcos/pthreads -I/opt/vc
 all: $(BIN)
 
 install: $(BIN)
-	install -d -m 755 $(DESTDIR)/usr/bin/
-	install -m 755 $(BIN) $(DESTDIR)/usr/bin/raspi2jpeg
+	install -m 755 $(BIN) $(DESTDIR)/raspi2jpeg
 
 %.o: %.c
 	@rm -f $@ 
