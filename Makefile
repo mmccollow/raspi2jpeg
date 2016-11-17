@@ -3,7 +3,7 @@ BIN=raspi2jpeg
 DESTDIR=/usr/local/bin
 
 CFLAGS+=-Wall -g -O3 $(shell pkg-config --cflags --libs MagickWand)
-LDFLAGS+=-L/opt/vc/lib/ $(shell MagickWand-config --ldflags) -lbcm_host -lm
+LDFLAGS+=-L/opt/vc/lib/ $(shell pkg-config --libs MagickWand) -lbcm_host -lm
 
 INCLUDES+=-I/opt/vc/include/ -I/opt/vc/include/interface/vcos/pthreads -I/opt/vc/include/interface/vmcs_host/linux
 
